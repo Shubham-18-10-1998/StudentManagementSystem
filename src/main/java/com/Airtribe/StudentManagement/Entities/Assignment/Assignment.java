@@ -1,6 +1,7 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Assignment;
 
 import main.java.com.Airtribe.StudentManagement.Interfaces.Gradable;
+import main.java.com.Airtribe.StudentManagement.Util.COURSE_TYPE;
 import main.java.com.Airtribe.StudentManagement.Util.GRADES;
 
 import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayMessage;
@@ -9,6 +10,7 @@ public abstract class Assignment implements Gradable {
     private int id;
     private String name;
     private GRADES grade;
+    private COURSE_TYPE courseType;
 
     Assignment(){
         this.grade = GRADES.F;
@@ -35,6 +37,14 @@ public abstract class Assignment implements Gradable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public COURSE_TYPE getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(COURSE_TYPE courseType) {
+        this.courseType = courseType;
     }
 
     @Override

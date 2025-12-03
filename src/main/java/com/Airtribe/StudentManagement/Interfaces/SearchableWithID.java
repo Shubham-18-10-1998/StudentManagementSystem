@@ -1,5 +1,5 @@
 package main.java.com.Airtribe.StudentManagement.Interfaces;
 
-public interface Searchable {
+public interface SearchableWithID {
     public boolean doesExist(int id);
 }

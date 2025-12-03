@@ -1,10 +1,6 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Person;
 
-import main.java.com.Airtribe.StudentManagement.Entities.Course.Course;
 import main.java.com.Airtribe.StudentManagement.Service.EnrollmentService;
-
-import java.util.Scanner;
-
 import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayMessage;
 
 public class Person {
@@ -13,7 +9,7 @@ public class Person {
     private String name;
     public EnrollmentService enrollmentService;
 
-    public Person(){};
+    public Person(){}
 
     public Person(Person old){
         this.id = old.id;

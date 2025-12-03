@@ -1,6 +1,7 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Course;
 
 import main.java.com.Airtribe.StudentManagement.Entities.Assignment.Assignment;
+import main.java.com.Airtribe.StudentManagement.Entities.Assignment.JavaAssignment;
 import main.java.com.Airtribe.StudentManagement.Util.COURSE_TYPE;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public abstract class Course {
     private boolean courseCompletion;
 
     public Course(COURSE_TYPE course_type){
-        this.CourseType = course_type;
+        this.setCourseType(course_type);
         assignments = new ArrayList<>();
         this.courseCompletion = false;
     }
@@ -48,14 +49,19 @@ public abstract class Course {
     }
 
     public void listAssignments() {
-        for(Assignment a : this.assignments){
-            a.DisplayAssignment();
+        for(Assignment assignment : this.assignments){
+            assignment.DisplayAssignment();
             DisplayLine();
         }
     }
 
-    public void setAssignments(Assignment assignments) {
-        this.assignments.add(assignments);
+    public void setAssignments(Assignment assignment) {
+        if(assignment.getCourseType() == this.getCourseType()){
+            assignments.add(assignment);
+            DisplayMessage("Assignment added to code successfully");
+        }else{
+            DisplayMessage("Assignment is not compatible with course.");
+        }
     }
 
     public boolean getCourseCompletion() {
