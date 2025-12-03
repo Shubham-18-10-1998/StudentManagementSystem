@@ -9,8 +9,6 @@ import main.java.com.Airtribe.StudentManagement.Entities.Person.GraduateStudent;
 import main.java.com.Airtribe.StudentManagement.Entities.Person.Person;
 import main.java.com.Airtribe.StudentManagement.Entities.Person.Student;
 
-import java.util.ArrayList;
-
 import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayMessage;
 
 public class Cohort {
@@ -24,6 +22,22 @@ public class Cohort {
         this.studentList = new StudentList();
         this.graduateStudentList = new GraduateStudentList();
         this.courseList = new CourseList();
+    }
+
+    public PersonList getPersonList() {
+        return personList;
+    }
+
+    public StudentList getStudentList() {
+        return studentList;
+    }
+
+    public GraduateStudentList getGraduateStudentList() {
+        return graduateStudentList;
+    }
+
+    public CourseList getCourseList() {
+        return courseList;
     }
 
     public void addPerson(Person person){
@@ -64,7 +78,42 @@ public class Cohort {
         }
     }
 
+    // ...existing code...
 
+    public Person getPersonById(int id) {
+        for(Person person : this.personList.getPersonList()) {
+            if(person.getId() == id) {
+                return person;
+            }
+        }
+        return null;
+    }
 
+    public Student getStudentById(int id) {
+        for(Student student : this.studentList.getStudentList()) {
+            if(student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public GraduateStudent getGraduateStudentById(int id) {
+        for(GraduateStudent gs : this.graduateStudentList.getGraduateStudentList()) {
+            if(gs.getId() == id) {
+                return gs;
+            }
+        }
+        return null;
+    }
+
+    public Course getCourseByName(String name) {
+        for(Course course : courseList.getCourseList()) {
+            if(course.getName().equals(name)) {
+                return course;
+            }
+        }
+        return null;
+    }
 
 }

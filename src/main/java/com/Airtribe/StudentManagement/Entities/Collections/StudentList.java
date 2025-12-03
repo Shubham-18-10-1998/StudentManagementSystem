@@ -16,6 +16,10 @@ public class StudentList implements SearchableWithID {
         studentList = new ArrayList<>();
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
     public void addToStudentList(Student student){
         this.studentList.add(student);
     }
@@ -40,5 +44,11 @@ public class StudentList implements SearchableWithID {
         }
         DisplayMessage("Student with given id has not been found");
         return false;
+    }
+
+    public void Display(){
+        for(Student student : this.studentList){
+            student.Display();
+        }
     }
 }

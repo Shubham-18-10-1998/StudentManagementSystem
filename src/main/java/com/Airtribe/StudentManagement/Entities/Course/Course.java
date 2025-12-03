@@ -1,7 +1,6 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Course;
 
 import main.java.com.Airtribe.StudentManagement.Entities.Assignment.Assignment;
-import main.java.com.Airtribe.StudentManagement.Entities.Assignment.JavaAssignment;
 import main.java.com.Airtribe.StudentManagement.Util.COURSE_TYPE;
 
 import java.util.ArrayList;
@@ -49,6 +48,10 @@ public abstract class Course {
     }
 
     public void listAssignments() {
+        if(this.assignments.isEmpty()){
+            DisplayMessage("There are no assignments currently assigned to the course");
+            return;
+        }
         for(Assignment assignment : this.assignments){
             assignment.DisplayAssignment();
             DisplayLine();
@@ -58,7 +61,7 @@ public abstract class Course {
     public void setAssignments(Assignment assignment) {
         if(assignment.getCourseType() == this.getCourseType()){
             assignments.add(assignment);
-            DisplayMessage("Assignment added to code successfully");
+            DisplayMessage("Assignment added to course successfully");
         }else{
             DisplayMessage("Assignment is not compatible with course.");
         }

@@ -6,13 +6,15 @@ import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.Dis
 
 public class JavaAssignment extends Assignment {
     private static int JavaCount = 0;
-    private int JavaVersion;
+    private double JavaVersion;
 
-    JavaAssignment(String name){
+    public JavaAssignment(String name){
         super(name);
         JavaAssignment.JavaCount++;
         super.setId(JavaCount);
         super.setCourseType(COURSE_TYPE.JAVA);
+        this.JavaVersion = 25;
+
     }
 
     @Override

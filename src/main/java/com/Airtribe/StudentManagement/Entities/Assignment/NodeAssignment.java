@@ -6,13 +6,14 @@ import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.Dis
 
 public class NodeAssignment extends Assignment {
     private static int NodeCount = 0;
-    private int nodeVersion;
+    private double nodeVersion;
 
-    NodeAssignment(String name){
+    public NodeAssignment(String name){
         super(name);
         NodeAssignment.NodeCount++;
         super.setId(NodeCount);
         super.setCourseType(COURSE_TYPE.NODE_JS);
+        this.nodeVersion = 25.2;
     }
 
     @Override

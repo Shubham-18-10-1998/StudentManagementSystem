@@ -1,5 +1,6 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Course;
 
+import main.java.com.Airtribe.StudentManagement.Entities.Assignment.NodeAssignment;
 import main.java.com.Airtribe.StudentManagement.Util.COURSE_TYPE;
 
 public class NodeCourse extends Course {
@@ -10,6 +11,6 @@ public class NodeCourse extends Course {
         count++;
         super.setId(count);
         super.setName(super.getCourseType().toString() + "_" + super.getId());
-
+        super.setAssignments(new NodeAssignment("intro_assignment_node"));
     }
 }

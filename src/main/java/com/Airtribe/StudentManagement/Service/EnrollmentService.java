@@ -48,4 +48,29 @@ public class EnrollmentService {
         return this.enrollment.getPaymentStatus();
     }
 
+    public Enrollment getEnrollment(){
+        return this.enrollment;
+    }
+
+    public void setPaymentStatus(boolean status){
+        this.enrollment.setPaymentStatus(status);
+    }
+
+    public void setEnrollmentStatus(boolean status){
+        this.getEnrollment().setEnrollmentStatus(status);
+    }
+
+    public double getDiscount(){
+        return this.getEnrollment().getDiscount();
+    }
+
+    public double getFees(){
+        return this.getEnrollment().getFees();
+    }
+
+    public double getScholarship(){
+        return this.getEnrollment().getScholarship();
+    }
+
+
 }

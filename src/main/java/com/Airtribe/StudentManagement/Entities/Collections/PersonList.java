@@ -16,6 +16,10 @@ public class PersonList implements SearchableWithID {
         this.personList = new ArrayList<>();
     }
 
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
     public void addToPersonList(Person person){
         this.personList.add(person);
     }
@@ -41,4 +45,11 @@ public class PersonList implements SearchableWithID {
         DisplayMessage("Person with given id has not been found");
         return false;
     }
+
+    public void Display(){
+        for(Person person : this.personList){
+            person.Display();
+        }
+    }
+
 }

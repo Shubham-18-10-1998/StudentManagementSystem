@@ -20,7 +20,7 @@ public class Enrollment {
     }
 
     public double getFees() {
-        return fees*(1 - this.getDiscount()/100 + this.getScholarship()/100);
+        return (fees * (1 - ((this.getDiscount()/100) + (this.getScholarship()/100)) ));
     }
 
     public boolean setFees(double fees) {
@@ -41,7 +41,7 @@ public class Enrollment {
 
     public boolean setDiscount(double discount) {
         try{
-            if(discountAndScholarshipValidator(this.discount, this.scholarship)) {
+            if(discountAndScholarshipValidator(discount, this.scholarship)) {
                 this.discount = discount;
             }
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class Enrollment {
 
     public boolean setScholarship(double scholarship) {
         try{
-            if(discountAndScholarshipValidator(this.discount, this.scholarship)){
+            if(discountAndScholarshipValidator(this.discount, scholarship)){
                 this.scholarship = scholarship;
             }
         } catch (Exception e) {
@@ -73,9 +73,7 @@ public class Enrollment {
 
     public void setPaymentStatus(boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
-        if(paymentStatus){
-            this.setEnrollmentStatus(true);
-        }
+        this.setEnrollmentStatus(this.paymentStatus);
     }
 
     public boolean getEnrollmentStatus() {

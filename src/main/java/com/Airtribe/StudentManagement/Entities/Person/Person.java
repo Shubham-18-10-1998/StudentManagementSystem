@@ -1,6 +1,9 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Person;
 
+import main.java.com.Airtribe.StudentManagement.Entities.Collections.CourseList;
 import main.java.com.Airtribe.StudentManagement.Service.EnrollmentService;
+
+import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayLine;
 import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayMessage;
 
 public class Person {
@@ -50,7 +53,7 @@ public class Person {
 
     public Student enrollPerson() throws IllegalStateException{
         if(this.enrollmentService.getPaymentStatus()){
-            return new Student(this, null);
+            return new Student(this, new CourseList());
         }else{
             throw new IllegalStateException("The person hasn't completed the payment, and hence cant be enrolled");
         }
@@ -59,6 +62,7 @@ public class Person {
     public void Display(){
         DisplayMessage("The id is : " + this.getId());
         DisplayMessage(("The name is : " + this.getName()));
+        DisplayLine();
     }
 
 

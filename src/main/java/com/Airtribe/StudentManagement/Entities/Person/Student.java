@@ -1,42 +1,48 @@
 package main.java.com.Airtribe.StudentManagement.Entities.Person;
 
+import main.java.com.Airtribe.StudentManagement.Entities.Collections.CourseList;
 import main.java.com.Airtribe.StudentManagement.Entities.Course.Course;
 
 public class Student extends Person{
 
-    private Course course;
+    private CourseList coursesList;
 
-    public Student(Person old, Course course){
+    public Student(Person old, CourseList courseList){
         super(old);
-        this.setCourse(course);
+        this.setCourseList(courseList);
     }
 
-    public Student(Student old){
+    public Student(Student student){
         Person p = new Person();
-        p.setName(old.getName());
-        p.setEnrollmentService(old.getEnrollmentService());
-        this(p, old.getCourse());
+        p.setName(student.getName());
+        p.setEnrollmentService(student.getEnrollmentService());
+        this(p, student.getCoursesList());
     }
 
-    public Course getCourse() {
-        return course;
+    public CourseList getCoursesList() {
+        return this.coursesList;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseList(CourseList courseList) {
+        this.coursesList = courseList;
+    }
+
+    public void assignCourse(Course course) {
+        this.coursesList.addToCourseList(course);
     }
 
     public GraduateStudent graduateStudent() throws IllegalStateException{
-        if(this.getCourse().getCourseCompletion()){
-            return new GraduateStudent(this);
-        }else{
-            throw new IllegalStateException("The student hasn't completed the course to graduate");
+        for(Course course : this.coursesList.getCourseList()){
+            if(course.getCourseCompletion()){
+                return new GraduateStudent(this);
+            }
         }
+        throw new IllegalStateException("The student hasn't completed any course to be able to graduate");
     }
 
     @Override
     public void Display(){
         super.Display();
-        this.getCourse().Display();
+        this.coursesList.Display();
     }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayLine;
 import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayMessage;
 
 public class CourseList implements SearchableWithName{
@@ -29,6 +30,9 @@ public class CourseList implements SearchableWithName{
         }
     }
 
+    public List<Course> getCourseList() {
+        return courseList;
+    }
 
     @Override
     public boolean doesExist(String name) {
@@ -41,5 +45,20 @@ public class CourseList implements SearchableWithName{
         }
         DisplayMessage("Course not Found!");
         return false;
+    }
+
+    public void Display(){
+        if(this.courseList.isEmpty()){
+            DisplayMessage("The student has no courses assigned to them currently");
+            return;
+        }
+        for(Course course : this.courseList){
+            if(course == null){
+                DisplayMessage("This course has been removed, Sorry");
+            }else{
+                course.Display();
+            }
+        }
+        DisplayLine();
     }
 }
