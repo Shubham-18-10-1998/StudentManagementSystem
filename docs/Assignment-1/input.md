@@ -22,8 +22,15 @@ we add it to PATH.
 > which match, this helps run our current version eve if older version
 > already exists.
 
+Screenshots for Installation and Running :
+<img src="./ByteCodeAndJavaFile.png"
+style="width:3.97918in;height:6.69297in" />
+<img src="./javaCompilationandRun.png"
+style="width:3.97918in;height:6.69297in" />
+
+Java Components Diagram
 <img src="./taf5xkdv.png"
-style="width:3.97918in;height:6.69297in" />Java Components Diagram
+style="width:3.97918in;height:6.69297in" />
 
 Diﬀerence Between JIT and Interpreter  
 Interpreter :
