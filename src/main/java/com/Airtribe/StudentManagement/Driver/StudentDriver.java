@@ -116,6 +116,10 @@ public class StudentDriver {
         }
         DisplayMessage("Please enter the course_name you wish to assign to the selected student with id :" + studentId);
         String courseName = scanner.nextLine();
+        if(!courseListCohort.doesExist(courseName)){
+            DisplayMessage("No such course exists to assign to student");
+            return;
+        }
         Course selectedCourse = cohort.getCourseByName(courseName);
         student.assignCourse(selectedCourse);
         DisplayMessage(SUCCESS_MESSAGE);
