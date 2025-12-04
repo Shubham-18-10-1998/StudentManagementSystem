@@ -3,6 +3,8 @@ package main.java.com.Airtribe.StudentManagement.Entities.Person;
 import main.java.com.Airtribe.StudentManagement.Entities.Collections.CourseList;
 import main.java.com.Airtribe.StudentManagement.Entities.Course.Course;
 
+import static main.java.com.Airtribe.StudentManagement.Util.UtilityFunctions.DisplayLine;
+
 public class Student extends Person{
 
     private CourseList coursesList;
@@ -44,5 +46,6 @@ public class Student extends Person{
     public void Display(){
         super.Display();
         this.coursesList.Display();
+        DisplayLine();
     }
 }
