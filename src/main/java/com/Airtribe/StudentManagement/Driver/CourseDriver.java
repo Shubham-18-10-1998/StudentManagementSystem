@@ -139,10 +139,11 @@ public class CourseDriver {
         DisplayMessage("If you wish to continue choose 1, or else this process will be terminated for any other input");
         int choice = scanner.nextInt();
         scanner.nextLine();
-        if(choice == 1){
-            selectedCourse.setCourseCompletion(true);
-            DisplayMessage(SUCCESS_MESSAGE);
+        if(choice != 1){
+            DisplayMessage(PROCESS_TERMINATED);
         }
+        selectedCourse.setCourseCompletion(true);
+        DisplayMessage(SUCCESS_MESSAGE);
     }
 
     public static void removeCourse(Cohort cohort){

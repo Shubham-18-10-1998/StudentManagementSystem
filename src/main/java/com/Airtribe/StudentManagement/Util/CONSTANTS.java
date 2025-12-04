@@ -10,6 +10,7 @@ public final class CONSTANTS {
 
     public static final String BACK_TO_MAIN_MENU = "Going back to main menu...";
 
+    public static final String PROCESS_TERMINATED = "Current Process has been terminated";
 
 }
 

@@ -108,10 +108,11 @@ public class StudentDriver {
         DisplayMessage("All the Courses currently in the cohort are as follows : ");
         courseListCohort.Display();
         DisplayMessage("If you wish to create a new course, please use the Course Menu, Thank you!");
-        DisplayMessage("If you wish to return, press 1, for all other input you will continue");
+        DisplayMessage("If you wish to continue press 1, for all other inputs current process will be terminated");
         int input = scanner.nextInt();
         scanner.nextLine(); //Clear Buffer
-        if(input == 1){
+        if(input != 1){
+            DisplayMessage(PROCESS_TERMINATED);
             return;
         }
         DisplayMessage("Please enter the course_name you wish to assign to the selected student with id :" + studentId);

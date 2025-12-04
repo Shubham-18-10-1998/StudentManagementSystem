@@ -17,6 +17,7 @@ public class Student extends Person{
     public Student(Student student){
         Person p = new Person();
         p.setName(student.getName());
+        p.setId(student.getId());
         p.setEnrollmentService(student.getEnrollmentService());
         this(p, student.getCoursesList());
     }
