@@ -38,7 +38,6 @@ public class PersonList implements SearchableWithID {
         for(Person person : personList){
             if(person.getId() == id){
                 DisplayMessage("Person has been found!");
-                person.Display();
                 return true;
             }
         }

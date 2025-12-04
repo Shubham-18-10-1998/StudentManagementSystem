@@ -84,7 +84,9 @@ public class GraduateStudentDriver {
         scanner.nextLine(); // Clear buffer
         
         if (cohort.getGraduateStudentList().doesExist(gsId)) {
-            DisplayMessage("Graduate student details retrieved above.");
+            DisplayMessage("Graduate student details are : ");
+            GraduateStudent graduateStudent = cohort.getGraduateStudentById(gsId);
+            graduateStudent.Display();
         } else {
             DisplayMessage("Graduate student with ID " + gsId + " not found.");
         }

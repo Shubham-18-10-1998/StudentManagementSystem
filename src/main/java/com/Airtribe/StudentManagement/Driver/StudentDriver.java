@@ -138,7 +138,7 @@ public class StudentDriver {
         scanner.nextLine(); // Clear buffer
 
         if (cohort.getStudentList().doesExist(studentId)) {
-            DisplayMessage("=== All Students Details ===");
+            DisplayMessage("=== Student Details ===");
             Student student = cohort.getStudentById(studentId);
             student.Display();
         } else {

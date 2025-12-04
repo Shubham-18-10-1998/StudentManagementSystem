@@ -78,8 +78,6 @@ public class Cohort {
         }
     }
 
-    // ...existing code...
-
     public Person getPersonById(int id) {
         for(Person person : this.personList.getPersonList()) {
             if(person.getId() == id) {

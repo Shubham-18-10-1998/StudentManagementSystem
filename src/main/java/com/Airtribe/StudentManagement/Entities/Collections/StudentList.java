@@ -38,7 +38,6 @@ public class StudentList implements SearchableWithID {
         for(Student student : studentList){
             if(student.getId() == id){
                 DisplayMessage("Student has been found!");
-                student.Display();
                 return true;
             }
         }

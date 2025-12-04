@@ -39,7 +39,6 @@ public class CourseList implements SearchableWithName{
         for(Course course : this.courseList){
             if(Objects.equals(course.getName(), name)){
                 DisplayMessage("Course Found!");
-                course.Display();
                 return true;
             }
         }

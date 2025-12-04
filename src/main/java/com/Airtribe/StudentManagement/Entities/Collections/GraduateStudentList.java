@@ -37,7 +37,6 @@ public class GraduateStudentList implements SearchableWithID {
         for(GraduateStudent gs : graduateStudentList){
             if(gs.getId() == id){
                 DisplayMessage("Graduate Student Found !");
-                gs.Display();
                 return true;
             }
         }
