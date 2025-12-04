@@ -61,7 +61,6 @@ public class StudentDriver {
                 Student student = cohort.getStudentById(studentId);
                 cohort.addGraduateStudent(student.graduateStudent());
                 DisplayMessage("Student has been successfully graduated.");
-                cohort.getStudentList().removeStudent(studentId);
             } catch (IllegalStateException e) {
                 DisplayMessage("Error: " + e.getMessage());
             }

@@ -70,7 +70,7 @@ public class Main {
                 default :
                     DisplayMessage("Please choose an input from the list to proceed further");
             }
-
+            DisplayLine();
         }
     }
 }

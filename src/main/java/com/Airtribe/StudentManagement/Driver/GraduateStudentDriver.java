@@ -17,7 +17,7 @@ public class GraduateStudentDriver {
         DisplayMessage("If you wish to set placement status for graduate student in the database - 3");
         DisplayMessage("If you wish to set organisation for a graduate student in the database - 4");
         DisplayMessage("If you wish to display all details for a graduate student in the database - 5");
-        DisplayMessage("If you wish to display all the graduate student in the database - 7");
+        DisplayMessage("If you wish to display all the graduate student in the database - 6");
         DisplayMessage("If you wish to go back to previous menu - 7");
         int innerChoice = scanner.nextInt();
         scanner.nextLine();//Clear Buffer

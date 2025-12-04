@@ -18,10 +18,11 @@ public class PersonDriver {
         DisplayMessage("If you wish to add a new person - 1");
         DisplayMessage("If you wish to remove a person with given id - 2");
         DisplayMessage("If you wish to enroll a person to student status - 3");
-        DisplayMessage("If you wish to display all the people currently in the database - 4");
-        DisplayMessage("If you wish to interact with the enrollment service for a person - 5");
-        DisplayMessage("If you wish to update the name for a person - 6");
-        DisplayMessage("If you wish to go back to previous menu - 7");
+        DisplayMessage("If you wish to update the name for a person - 4");
+        DisplayMessage("If you wish to view details for a person - 5");
+        DisplayMessage("If you wish to display all the people currently in the database - 6");
+        DisplayMessage("If you wish to interact with the enrollment service for a person - 7");
+        DisplayMessage("If you wish to go back to previous menu - 8");
         int innerChoice = scanner.nextInt();
         scanner.nextLine();//Clear Buffer
         switch (innerChoice) {
@@ -34,10 +35,16 @@ public class PersonDriver {
             case 3:
                 enrollPersonToStudent(cohort);
                 break;
-            case 4:
+            case 4 :
+                changeName(cohort);
+                break;
+            case 5 :
+                displayPersonDetails(cohort);
+                break;
+            case 6:
                 displayAllPeople(cohort);
                 break;
-            case 5:
+            case 7:
                 int personId;
                 DisplayMessage("Enter the id for the person");
                 personId = scanner.nextInt();
@@ -49,10 +56,7 @@ public class PersonDriver {
                     DisplayMessage("Person with given id doesn't exist, hence enrollment service cannot be interacted with");
                 }
                 break;
-            case 6 :
-                changeName(cohort);
-                break;
-            case 7:
+            case 8:
                 DisplayMessage(BACK_TO_MAIN_MENU);
                 break;
             default:
@@ -116,5 +120,19 @@ public class PersonDriver {
         String name = scanner.nextLine();
         person.setName(name);
         DisplayMessage(SUCCESS_MESSAGE);
+    }
+
+    public static void displayPersonDetails(Cohort cohort){
+        int personId;
+        DisplayMessage("Enter the id for the person");
+        personId = scanner.nextInt();
+        scanner.nextLine(); //Clear Buffer
+        if(!cohort.getPersonList().doesExist(personId)){
+            DisplayMessage("Person with ID " + personId + " not found.");
+            return;
+        }
+        Person person = cohort.getPersonById(personId);
+        DisplayMessage("ALL details for person with id : " + personId);
+        person.Display();
     }
 }

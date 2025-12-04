@@ -7,6 +7,7 @@ import main.java.com.Airtribe.StudentManagement.Entities.Collections.CourseList;
 import main.java.com.Airtribe.StudentManagement.Entities.Course.Course;
 import main.java.com.Airtribe.StudentManagement.Entities.Course.JavaCourse;
 import main.java.com.Airtribe.StudentManagement.Entities.Course.NodeCourse;
+import main.java.com.Airtribe.StudentManagement.Entities.Person.Student;
 import main.java.com.Airtribe.StudentManagement.Util.COURSE_TYPE;
 
 import java.util.Scanner;
@@ -20,10 +21,12 @@ public class CourseDriver {
 
     public static void courseDriver(Cohort cohort) {
         DisplayMessage("If you wish to view all courses - 1");
-        DisplayMessage("If you wish to create a new course - 2");
-        DisplayMessage("If you wish to create a new assignment for a course - 3");
-        DisplayMessage("If you wish to set Course Completion a course - 4");
-        DisplayMessage("If you wish to go back to previous menu - 5");
+        DisplayMessage("If you wish to all details for a specific course - 2");
+        DisplayMessage("If you wish to create a new course - 3");
+        DisplayMessage("If you wish to create a new assignment for a course - 4");
+        DisplayMessage("If you wish to set course completion for a course - 5");
+        DisplayMessage("if you wish to remove a course - 6");
+        DisplayMessage("If you wish to go back to previous menu - 7");
         int innerChoice = scanner.nextInt();
         scanner.nextLine();//Clear Buffer
         switch (innerChoice) {
@@ -31,15 +34,21 @@ public class CourseDriver {
                 viewAllCourses(cohort);
                 break;
             case 2 :
-                createCourse(cohort);
+                viewCourse(cohort);
                 break;
             case 3 :
-                createNewAssignmentForCourse(cohort);
+                createCourse(cohort);
                 break;
             case 4 :
-                setCourseCompletionForCourse(cohort);
+                createNewAssignmentForCourse(cohort);
                 break;
             case 5 :
+                setCourseCompletionForCourse(cohort);
+                break;
+            case 6 :
+                removeCourse(cohort);
+                break;
+            case 7 :
                 DisplayMessage(BACK_TO_MAIN_MENU);
                 break;
             default:
@@ -134,5 +143,38 @@ public class CourseDriver {
             selectedCourse.setCourseCompletion(true);
             DisplayMessage(SUCCESS_MESSAGE);
         }
+    }
+
+    public static void removeCourse(Cohort cohort){
+        viewAllCourses(cohort);
+
+        DisplayMessage("Enter the course name for course you wish to remove");
+        String courseName = scanner.nextLine();
+
+        if(!cohort.getCourseList().doesExist(courseName)){
+            DisplayMessage("No such course exists to remove for courseList");
+        }else{
+            Course course = cohort.getCourseByName(courseName);
+            DisplayMessage("Removing course from cohort collection");
+            cohort.getCourseList().removeFromCourseList(course);
+
+            DisplayMessage("Removing course from student course list if exists");
+            for(Student student : cohort.getStudentList().getStudentList()){
+                student.getCoursesList().removeFromCourseList(course);
+            }
+        }
+    }
+
+    public static void viewCourse(Cohort cohort){
+        DisplayMessage("Please enter the course_name you of course you wish to view");
+        String courseName = scanner.nextLine();
+
+        if(!cohort.getCourseList().doesExist(courseName)){
+            DisplayMessage("No course with given name found");
+            return;
+        }
+        Course course = cohort.getCourseByName(courseName);
+        DisplayMessage("Course Details for course with course_name : " + courseName);
+        course.Display();
     }
 }
