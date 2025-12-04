@@ -23,10 +23,8 @@ we add it to PATH.
 > already exists.
 
 Screenshots for Installation and Running :
-<img src="./ByteCodeAndJavaFile.png"
-style="width:3.97918in;height:6.69297in" />
-<img src="./javaCompilationandRun.png"
-style="width:3.97918in;height:6.69297in" />
+<img src="./ByteCodeAndJavaFile.png"/>
+<img src="./javaCompilationandRun.png"/>
 
 Java Components Diagram
 <img src="./taf5xkdv.png"
